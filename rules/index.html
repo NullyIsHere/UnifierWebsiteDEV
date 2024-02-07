@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@next/css/pico.min.css">
+  <title>Unifier Channel Rules</title>
+  <style>
+    .bind {
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+    <h1>Unifier Channel Rules</h1>
+    <table>
+      <tr>
+        <th><button onclick="setRules('main')">Main</button></th>
+        <th><button onclick="setRules('propaganda')">Propaganda</button></th>
+        <th><button onclick="setRules('pr-comments')">PR Comments</button></th>
+        <th><button onclick="setRules('liveries')">Liveries</button></th>
+        <th><button onclick="setRules('shm')">Shm</button></th>
+        <th><button onclick="setRules('other-languages')">Other Languages</button></th>
+      </tr>
+    </table>
+
+    <div id="rules"></div>
+
+  </main>
+
+ <script>
+  const text = document.getElementById("rules");
+
+  function setRules(room) {
+    if (room === "main") {
+      text.innerHTML = `
+        <h2>Main Room Rules</h2>
+        <ul>
+          <li>Be civil and follow Discord ToS and guidelines.</li>
+          <li>Absolutely no NSFW in here - this is a SFW channel.</li>
+          <li>Don't be a dick and harass others, be a nice fellow to everyone.</li>
+          <li>Don't cause drama, we like to keep things clean.</li>
+          <li>Don't ask for punishments unless you want to be restricted.</li>
+          <li>Server and global moderators have the final say; don't argue unless there's a good reason to.</li>
+          <li>Don't go hating on AM moderators; they're still human after all. Just because you got punished (even unfairly) doesn't mean you should straight up attack them.</li>
+          <li>Use common sense. These rules are not comprehensive; don't use loopholes or use "it wasn't in the rules" as an argument.</li>
+          <li>Don't use server rules as a way of bypassing these rules. Servers violating these rules will be permanently globally restricted.</li>
+          <li>If something doesn't break UniChat rules but breaks your server's rules, then it's your and your moderators' responsibility to take action. We only take action if the content violates UniChat rules.</li>
+        </ul>
+        <p class="bind">Bind using u!bind main</p>
+      `;
+    } else if (room === "propaganda") {
+      text.innerHTML = `
+        <h2>Propaganda Room Rules</h2>
+        <ul>
+          <li>Follow all main room rules.</li>
+          <li>Only PRs in here - no comments allowed.</li>
+          <li>Failure to follow room rules may result in user or server restrictions.</li>
+        </ul>
+        <p class="bind">Bind using u!bind pr</p>
+      `;
+    } else if (room === "pr-comments") {
+      text.innerHTML = `
+        <h2>PR Comments Room Rules</h2>
+        <ul>
+          <li>Follow all main room rules.</li>
+          <li>Don't make PRs in here - this is for comments only.</li>
+        </ul>
+        <p class="bind">Bind using u!bind pr-comments</p>
+      `;
+    } else if (room === "liveries") {
+      text.innerHTML = `
+        <h2>Liveries Room Rules</h2>
+        <ul>
+          <li>Follow all main room rules.</li>
+          <li>Please keep things on topic and post liveries or comments on liveries only.</li>
+        </ul>
+        <p class="bind">Bind using u!bind liveries</p>
+      `;
+    } else if (room === "shm") {
+      text.innerHTML = `
+        <h2>SHM Room Rules</h2>
+        <ul>
+          <li>Follow all main room rules.</li>
+          <li>SHM deals only, keep everything else in the appropriate channels.</li>
+          <li>It is you and your seller's/buyer's responsibility to get in touch with each other. Unified Chat does not provide any DM feature whatsoever, and we do not recommend negotiating trade conditions and times in here.</li>
+        </ul>
+        <p class="bind">Bind using u!bind shm</p>
+      `;
+    } else if (room === "other-languages") {
+      text.innerHTML = `
+        <h2>Other Languages Room Rules</h2>
+        <ul>
+          <li>Follow all main room rules.</li>
+          <li>Please use the main chat if you wish to speak in English.</li>
+        </ul>
+        <p class="bind">Bind using u!bind other-languages</p>
+      `;
+    } else {
+      text.innerHTML = "Invalid room selection";
+    }
+  }
+</script>
+
+</body>
+
+</html>
